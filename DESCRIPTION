@@ -1,4 +1,4 @@
-Package: lhcMR
+Package: lhcMR_LRT
 Title: Latent Heritable Confounder - Mendelian Randomisation
 Version: 0.0.0.9000
 Authors@R: 
