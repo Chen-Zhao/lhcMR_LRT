@@ -164,7 +164,7 @@ lhc_mr_multiple_model = function(SP_list,trait.names,partition=NA,account=NA,par
                      m0=m0, nX=nX, nY=nY, pi_U=piU, pi_X=piX, pi_Y=piY, i_X=iX, i_Y=iY,
                      bn=bn, bins=bins, model=param,
                      method = "Nelder-Mead",
-                     control = list(maxit = 50,
+                     control = list(maxit = 1000,
                                     parscale = parscale2))
         
         list("mLL"=test$value,"par"=test$par,"conv"=test$convergence)
@@ -232,7 +232,7 @@ lhc_mr_multiple_model = function(SP_list,trait.names,partition=NA,account=NA,par
                       pi_X=piX, pi_Y=piY, i_X=iX, i_Y=iY,
                       m0=m0, nX=nX, nY=nY, bn=bn, bins=bins, model=param,
                       method = "Nelder-Mead",
-                      control = list(maxit = 10,
+                      control = list(maxit = 1000,
                                      parscale = parscale2))
         
         list("mLL"=test1$value,"par"=test1$par,"conv"=test1$convergence,"start_ind"=start_ind, "end_ind"=end_ind)
