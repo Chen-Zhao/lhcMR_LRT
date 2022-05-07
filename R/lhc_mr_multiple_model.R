@@ -74,7 +74,7 @@ lhc_mr_multiple_model = function(SP_list,trait.names,partition=NA,account=NA,par
   if(param=="no_b"){
     SP_matrix = dplyr::select(as.data.frame(SP_matrix),-c(sp_ayx))
   }
-  if(param=="null"){
+  if(param=="NULL"){
     SP_matrix = dplyr::select(as.data.frame(SP_matrix),-c(sp_tX,sp_tY,sp_axy,sp_ayx))
   }
   
@@ -130,7 +130,7 @@ lhc_mr_multiple_model = function(SP_list,trait.names,partition=NA,account=NA,par
       parscale2 = rep(1e-1,6)
     }else if(param=="no_b"){
       parscale2 = rep(1e-1,6)
-    }else if(param=="null"){
+    }else if(param=="NULL"){
       parscale2 = rep(1e-1,3)
     }else{
       parscale2 = rep(1e-1,7)
