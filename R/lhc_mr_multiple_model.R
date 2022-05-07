@@ -27,6 +27,7 @@
 #' @examples
 
 
+
 lhc_mr_multiple_model = function(SP_list,trait.names,partition=NA,account=NA,param="comp",paral_method="rslurm",nCores=NA,nBlock=200,M=1e7){
   
   input.df_filtered = SP_list$input.df_filtered
@@ -164,7 +165,7 @@ lhc_mr_multiple_model = function(SP_list,trait.names,partition=NA,account=NA,par
                      m0=m0, nX=nX, nY=nY, pi_U=piU, pi_X=piX, pi_Y=piY, i_X=iX, i_Y=iY,
                      bn=bn, bins=bins, model=param,
                      method = "Nelder-Mead",
-                     control = list(maxit = 1000,
+                     control = list(maxit = 50,
                                     parscale = parscale2))
         
         list("mLL"=test$value,"par"=test$par,"conv"=test$convergence)
@@ -232,14 +233,14 @@ lhc_mr_multiple_model = function(SP_list,trait.names,partition=NA,account=NA,par
                       pi_X=piX, pi_Y=piY, i_X=iX, i_Y=iY,
                       m0=m0, nX=nX, nY=nY, bn=bn, bins=bins, model=param,
                       method = "Nelder-Mead",
-                      control = list(maxit = 1000,
+                      control = list(maxit = 10,
                                      parscale = parscale2))
         
         list("mLL"=test1$value,"par"=test1$par,"conv"=test1$convergence,"start_ind"=start_ind, "end_ind"=end_ind)
       }, mc.cores = nCores)
       
       test.res1_tmp <- as.data.frame(t(matrix(unlist(test.res1), nrow=length(unlist(test.res1[1])))))
-      colnames(test.res1_tmp)  <- c("mLL",gsub("^par.42.","",names(test.res1[[1]]$par)),"conv","start_ind","end_ind")
+      colnames(test.res1_tmp)  <- c("mLL",gsub("^par.[0-9]+.","",names(test.res1[[1]]$par)),"conv","start_ind","end_ind")
       test.res1_mx <- data.frame(matrix(0,ncol=11,nrow=NROW(test.res1_tmp)))
       colnames(test.res1_mx) <- c("mLL", "h2X","h2Y","tX","tY","axy","ayx","iXY","conv","start_ind", "end_ind")
       test.res1_mx[,colnames(test.res1_tmp)] <- test.res1_tmp
