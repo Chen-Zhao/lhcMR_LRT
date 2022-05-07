@@ -25,8 +25,8 @@ Imports:
     stats,
     stringr,
     TwoSampleMR
-URL: https://github.com/LizaDarrous/lhcMR
-BugReports: https://github.com/LizaDarrous/lhcMR/issues
+URL: https://github.com/Chen-Zhao/lhcMR_LRT
+BugReports: https://github.com/Chen-Zhao/lhcMR_LRT/issues
 Suggests: 
     rmarkdown,
     knitr
