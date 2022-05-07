@@ -2,6 +2,8 @@
 
 export(calculate_SP)
 export(lhc_mr)
+export(lhc_mr_multiple_model)
+export(pairTrait_twoStep_likelihood_multiple_model)
 export(merge_sumstats)
 importFrom(MASS,fitdistr)
 importFrom(data.table,fread)
